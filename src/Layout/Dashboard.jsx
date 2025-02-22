@@ -49,7 +49,7 @@ const Dashboard = () => {
 
   return (
     <div className="flex ml-10">
-      <div className="w-64 min-h-screen bg-[#cb8161] ">
+      <div className="w-64 min-h-screen bg-[#004274] text-white">
         <ul className="menu p-4">
           {isAdmin === "admin" ? (
             <>
@@ -76,9 +76,9 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/users">
+                <NavLink to="/dashboard/allProperties">
                   <FaUser></FaUser>
-                  All Properties
+                  All Propertiese
                 </NavLink>
               </li>
             </>

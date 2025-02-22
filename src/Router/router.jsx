@@ -10,6 +10,7 @@ import Dashboard from "../Layout/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import AllUsers from "../Pages/AllUsers";
 import AllProperties from "../Components/AllProperties";
+import AllPropertiesTable from "../Dashboard/AllPropertiesTable";
 
 
   const router = createBrowserRouter([
@@ -43,6 +44,10 @@ import AllProperties from "../Components/AllProperties";
         {
           path: 'users',
           element: <AllUsers></AllUsers>,
+        },
+        {
+          path: 'allProperties',
+          element: <AllPropertiesTable></AllPropertiesTable>,
         }
       ]
   },
