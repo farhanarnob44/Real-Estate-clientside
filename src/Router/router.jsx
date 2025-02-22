@@ -9,6 +9,7 @@ import Register from "../Components/Register";
 import Dashboard from "../Layout/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import AllUsers from "../Pages/AllUsers";
+import AllProperties from "../Components/AllProperties";
 
 
   const router = createBrowserRouter([
@@ -27,6 +28,10 @@ import AllUsers from "../Pages/AllUsers";
         {
             path: '/register',
             element:<Register></Register>
+        },
+        {
+            path: '/allProperties',
+            element:<AllProperties></AllProperties>
         },
 
       ]

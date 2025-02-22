@@ -75,6 +75,12 @@ const Dashboard = () => {
                   All Users
                 </NavLink>
               </li>
+              <li>
+                <NavLink to="/dashboard/users">
+                  <FaUser></FaUser>
+                  All Properties
+                </NavLink>
+              </li>
             </>
           ) : isAdmin === "customer" ? (
             <>

@@ -1,0 +1,116 @@
+[
+    {
+      "_id": "1",
+      "propertyImage": "https://example.com/property1.jpg",
+      "propertyTitle": "Luxury Apartment with City View",
+      "propertyLocation": "123 Main St, Anytown, CA",
+      "agentName": "John Smith",
+      "agentImage": "https://example.com/agent1.jpg",
+      "verificationStatus": "Verified",
+      "priceRange": "$2,500 - $3,500/month",
+      "detailsButton": "View Details"
+    },
+    {
+      "_id": "2",
+      "propertyImage": "https://example.com/property2.jpg",
+      "propertyTitle": "Cozy Family Home in Quiet Suburb",
+      "propertyLocation": "456 Oak Ave, Suburbia, NY",
+      "agentName": "Jane Doe",
+      "agentImage": "https://example.com/agent2.jpg",
+      "verificationStatus": "Pending",
+      "priceRange": "$400,000 - $500,000",
+      "detailsButton": "View Details",
+      "category": "popular"
+    },
+    {
+      "__id": "3",
+      "propertyImage": "https://example.com/property3.jpg",
+      "propertyTitle": "Modern Loft in Downtown Area",
+      "propertyLocation": "789 Pine Ln, Metropolis, TX",
+      "agentName": "David Lee",
+      "agentImage": "https://example.com/agent3.jpg",
+      "verificationStatus": "Verified",
+      "priceRange": "$1,800 - $2,800/month",
+      "detailsButton": "View Details"
+    },
+    {
+      "_id": "4",
+      "propertyImage": "https://example.com/property4.jpg",
+      "propertyTitle": "Seaside Villa with Private Beach",
+      "propertyLocation": "101 Ocean Dr, Coastal City, FL",
+      "agentName": "Sarah Jones",
+      "agentImage": "https://example.com/agent4.jpg",
+      "verificationStatus": "Verified",
+      "priceRange": "$1,200,000 - $1,500,000",
+      "detailsButton": "View Details"
+    },
+      {
+      "_id": "5",
+      "propertyImage": "https://example.com/property5.jpg",
+      "propertyTitle": "Rustic Cabin in Mountain Retreat",
+      "propertyLocation": "222 Mountain Rd, Hilltop, CO",
+      "agentName": "Michael Brown",
+      "agentImage": "https://example.com/agent5.jpg",
+      "verificationStatus": "Pending",
+      "priceRange": "$250,000 - $350,000",
+      "detailsButton": "View Details",
+      "category": "popular"
+    },
+    {
+      "_id": "6",
+      "propertyImage": "https://example.com/property6.jpg",
+      "propertyTitle": "Spacious Condo with Pool Access",
+      "propertyLocation": "333 Lakeview Ct, Resort Town, AZ",
+      "agentName": "Emily Davis",
+      "agentImage": "https://example.com/agent6.jpg",
+      "verificationStatus": "Verified",
+      "priceRange": "$3,000 - $4,000/month",
+      "detailsButton": "View Details",
+      "category": "popular"
+    },
+    {
+      "_id": "7",
+      "propertyImage": "https://example.com/property7.jpg",
+      "propertyTitle": "Historical Townhouse in Old City",
+      "propertyLocation": "444 Elm St, Historic District, MA",
+      "agentName": "Christopher Wilson",
+      "agentImage": "https://example.com/agent7.jpg",
+      "verificationStatus": "Verified",
+      "priceRange": "$800,000 - $950,000",
+      "detailsButton": "View Details"
+    },
+    {
+      "_id": "8",
+      "propertyImage": "https://example.com/property8.jpg",
+      "propertyTitle": "Studio Apartment near University",
+      "propertyLocation": "555 College Ave, Campus Town, IL",
+      "agentName": "Jessica Garcia",
+      "agentImage": "https://example.com/agent8.jpg",
+      "verificationStatus": "Pending",
+      "priceRange": "$1,200 - $1,500/month",
+      "detailsButton": "View Details",
+      "category": "popular"
+    },
+    {
+      "_id": "9",
+      "propertyImage": "https://example.com/property9.jpg",
+      "propertyTitle": "Farmhouse with Acreage",
+      "propertyLocation": "666 Country Ln, Rural Area, KS",
+      "agentName": "Kevin Rodriguez",
+      "agentImage": "https://example.com/agent9.jpg",
+      "verificationStatus": "Verified",
+      "priceRange": "$550,000 - $650,000",
+      "detailsButton": "View Details"
+    },
+    {
+      "_id": "10",
+      "propertyImage": "https://example.com/property10.jpg",
+      "propertyTitle": "Penthouse with Panoramic View",
+      "propertyLocation": "777 Sky High Rd, Big City, NV",
+      "agentName": "Amanda Martinez",
+      "agentImage": "https://example.com/agent10.jpg",
+      "verificationStatus": "Verified",
+      "priceRange": "$5,000 - $7,000/month",
+      "detailsButton": "View Details"
+    }
+  ]
