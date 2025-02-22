@@ -1,7 +1,7 @@
 [
     {
       "_id": "1",
-      "propertyImage": "https://example.com/property1.jpg",
+      "propertyImage": "https://i.ibb.co.com/mCMyskKy/pexels-athena-2972860.jpg",
       "propertyTitle": "Luxury Apartment with City View",
       "propertyLocation": "123 Main St, Anytown, CA",
       "agentName": "John Smith",
@@ -12,7 +12,7 @@
     },
     {
       "_id": "2",
-      "propertyImage": "https://example.com/property2.jpg",
+      "propertyImage": "https://i.ibb.co.com/jP0hNCrC/pexels-ibidsy-8894802.jpg",
       "propertyTitle": "Cozy Family Home in Quiet Suburb",
       "propertyLocation": "456 Oak Ave, Suburbia, NY",
       "agentName": "Jane Doe",
@@ -24,7 +24,7 @@
     },
     {
       "__id": "3",
-      "propertyImage": "https://example.com/property3.jpg",
+      "propertyImage": "https://i.ibb.co.com/Qjt5hQKT/pexels-chaitaastic-1918291.jpg",
       "propertyTitle": "Modern Loft in Downtown Area",
       "propertyLocation": "789 Pine Ln, Metropolis, TX",
       "agentName": "David Lee",
@@ -35,7 +35,7 @@
     },
     {
       "_id": "4",
-      "propertyImage": "https://example.com/property4.jpg",
+      "propertyImage": "https://i.ibb.co.com/rRGxT5jX/pexels-asadphoto-9482132.jpg",
       "propertyTitle": "Seaside Villa with Private Beach",
       "propertyLocation": "101 Ocean Dr, Coastal City, FL",
       "agentName": "Sarah Jones",
@@ -46,7 +46,7 @@
     },
       {
       "_id": "5",
-      "propertyImage": "https://example.com/property5.jpg",
+      "propertyImage": "https://i.ibb.co.com/tjBj94L/pexels-quang-nguyen-vinh-222549-2174992.jpg",
       "propertyTitle": "Rustic Cabin in Mountain Retreat",
       "propertyLocation": "222 Mountain Rd, Hilltop, CO",
       "agentName": "Michael Brown",
@@ -58,7 +58,7 @@
     },
     {
       "_id": "6",
-      "propertyImage": "https://example.com/property6.jpg",
+      "propertyImage": "https://i.ibb.co.com/bg16RPSb/pexels-perqued-13203188.jpg",
       "propertyTitle": "Spacious Condo with Pool Access",
       "propertyLocation": "333 Lakeview Ct, Resort Town, AZ",
       "agentName": "Emily Davis",
@@ -70,7 +70,7 @@
     },
     {
       "_id": "7",
-      "propertyImage": "https://example.com/property7.jpg",
+      "propertyImage": "https://i.ibb.co.com/YSpjC3g/pexels-orlovamaria-4916134.jpg",
       "propertyTitle": "Historical Townhouse in Old City",
       "propertyLocation": "444 Elm St, Historic District, MA",
       "agentName": "Christopher Wilson",
@@ -81,7 +81,7 @@
     },
     {
       "_id": "8",
-      "propertyImage": "https://example.com/property8.jpg",
+      "propertyImage": "https://i.ibb.co.com/LXNtD4qW/pexels-heyho-6538934.jpg",
       "propertyTitle": "Studio Apartment near University",
       "propertyLocation": "555 College Ave, Campus Town, IL",
       "agentName": "Jessica Garcia",
@@ -93,7 +93,7 @@
     },
     {
       "_id": "9",
-      "propertyImage": "https://example.com/property9.jpg",
+      "propertyImage": "https://i.ibb.co.com/tMZnvtXS/pexels-kelly-1179532-2510067.jpg",
       "propertyTitle": "Farmhouse with Acreage",
       "propertyLocation": "666 Country Ln, Rural Area, KS",
       "agentName": "Kevin Rodriguez",
@@ -104,7 +104,7 @@
     },
     {
       "_id": "10",
-      "propertyImage": "https://example.com/property10.jpg",
+      "propertyImage": "https://i.ibb.co.com/Y4tx5npS/pexels-heyho-7045918.jpg",
       "propertyTitle": "Penthouse with Panoramic View",
       "propertyLocation": "777 Sky High Rd, Big City, NV",
       "agentName": "Amanda Martinez",

@@ -29,10 +29,12 @@ const AllProperties = () => {
           </div>
         </div>
       </div>
-
+      <div className="my-10">
       <SectionTitle heading="Top Choices" subHeading="This week"></SectionTitle>
+      </div>
 
-      <div className="w-11/12 mx-auto flex flex-col gap-5">
+
+      <div className="w-11/12 mt-10 mx-auto grid grid-cols-3 gap-5">
         {menu.map((item) => (
           <AllPropertiesItem key={item._id} item={item}></AllPropertiesItem>
         ))}
