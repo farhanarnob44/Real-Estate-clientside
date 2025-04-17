@@ -1,23 +1,24 @@
 import React from "react";
-import img1 from "../assets/img1.jpg"
-import img2 from "../assets/img2.jpg"
-import img3 from "../assets/img3.jpg"
-import * as motion from "motion/react-client"
+import img1 from "../assets/home2.jpg";
+import img2 from "../assets/home 3.jpg";
+import img3 from "../assets/img3.jpg";
+import * as motion from "motion/react-client";
 import { easeOut } from "framer-motion";
 
-const Banner = () => {
+const  Banner = () => {
   return (
     <div>
-      <div>
-        <div className="carousel h-[800px] mb-28  w-full">
-          <div id="slide1" className="carousel-item relative w-full">
+      <div className="mt-[-30px] ">
+        <div className="carousel h-[1000px] mb-28  w-full">
+          <div id="slide1" className="carousel-item relative w-full transition duration-200">
             <div
-              className="hero bg-slate-500 text-white  bg-blend-overlay bg-cover"
+              className="hero bg-slate-500 text-white  bg-blend-overlay bg-cover h-[-600px]"
               style={{
                 backgroundImage: `url(${img1})`,
               }}
             >
               <div className=""></div>
+              <div className="mx-auto bg-black bg-opacity-40 p-8 pt-4">
               <div className="hero-content text-neutral-content text-center">
                 <div className="max-w-md">
                   <motion.h1
@@ -50,6 +51,7 @@ const Banner = () => {
                   </button>
                 </div>
               </div>
+              </div>
             </div>
             <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
               <a href="#slide3" className="btn btn-circle">
@@ -60,7 +62,7 @@ const Banner = () => {
               </a>
             </div>
           </div>
-          <div id="slide2" className="carousel-item relative w-full">
+          <div id="slide2" className="carousel-item relative w-full transition duration-200">
             <div
               className="hero bg-slate-500 bg-blend-overlay bg-cover"
               style={{
@@ -110,7 +112,7 @@ const Banner = () => {
               </a>
             </div>
           </div>
-          <div id="slide3" className="carousel-item relative w-full">
+          <div id="slide3" className="carousel-item relative w-full transition duration-200">
             <div
               className="hero bg-slate-500 bg-blend-overlay bg-cover"
               style={{

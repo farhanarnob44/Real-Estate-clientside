@@ -1,15 +1,34 @@
-import React, { useContext } from "react";
-import { data, Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { data, Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "./SocialLogIn/SocialLogin";
 import RegisterLottieData from "./regoster.json";
 import Lottie from "lottie-react";
 import { AuthContext } from "../Provider/AuthProvider";
 import UseeAxiosPublic from "./UseeAxiosPublic";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const axiosPublic = UseeAxiosPublic();
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const [error, setError] = useState("");
+
+  // const validatePassword = () => {
+  //   const hasCapitalLetter = /[A-Z]/.test(password);
+  //   const hasNumber = /[0-9]/.test(password);
+
+  //   if (!hasCapitalLetter || !hasNumber) {
+  //     setErrorMessage('Password must contain at least one capital letter and one number.');
+  //     return false;
+  //   }
+  //   return true; // Password is valid
+  // };
+
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -20,6 +39,14 @@ const Register = () => {
     const used = { email, password, photo, name };
     console.log(used);
 
+    setError("");
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      setError(
+        "Must contain uppercase, and lowercase letters, and be at least 6 characters long. "
+      );
+    }
+
     createUser(email, password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
@@ -27,40 +54,31 @@ const Register = () => {
         name: name,
         email: email,
         photo: photo,
-        role: "customer"
+        role: "customer",
       };
-      axios.post("http://localhost:5000/users", userInfo)
-      .then((result) => {
-        if (result.insertedId) {
-          console.log("user added to the databse")
-          Swal.fire({
-            title: "Registration successful",
-            showClass: {
-              popup: `
-                                animate__animated
-                                animate__fadeInUp
-                                animate__faster
-                              `,
-            },
-            hideClass: {
-              popup: `
-                                animate__animated
-                                animate__fadeOutDown
-                                animate__faster
-                              `,
-            },
-          });
-          navigate("/");
-        }
-      }
-    )
-    .catch((error) => console.log(error));
+      axios
+        .post("http://localhost:5000/users", userInfo)
+        .then((result) => {
+          if (result) {
+             console.log("aschje")
+            Swal.fire({
+              title: "success!",
+              text: "User addeded",
+              icon: "success",
+              confirmButtonText: "Continue",
+            });
+        }})
+        .catch((error) => {
+          console.log(error);
+          setError(error.message);
+        });
+        navigate(from, { replace: true });
     });
   };
   return (
     <div>
       <div>
-        <div className="hero bg-base-200 min-h-screen">
+        <div className="hero bg-blue-100 min-h-screen">
           <div className="hero-content w-5/12 flex ">
             <div className="text-center lg:text-left">
               <Lottie
@@ -68,11 +86,11 @@ const Register = () => {
                 animationData={RegisterLottieData}
               ></Lottie>
             </div>
-            <div className="card bg-base-100 w-full  shrink-0 shadow-2xl">
-              <h1 className="text-5xl font-bold text-center mb-3 mt-3">
+            <div className="card  w-full bg-white shrink-0 shadow-2xl">
+              <h1 className="text-5xl font-bold  text-center mb-3 mt-3">
                 Register!
               </h1>
-              <form onSubmit={handleRegister} className="card-body">
+              <form onSubmit={handleRegister} className="card-body ">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Name</span>
@@ -135,6 +153,7 @@ const Register = () => {
                   </p>
                 </div>
               </form>
+              {error && <p className="text-red-600 pl-4 pb-4">{error}</p>}
             </div>
           </div>
         </div>

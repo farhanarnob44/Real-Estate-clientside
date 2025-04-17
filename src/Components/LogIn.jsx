@@ -20,49 +20,60 @@ const LogIn = () => {
     const used = { email, password };
     console.log(used);
 
-    signIn(email, password).then((result) => {
+    signIn(email, password)
+    .then((result) => {
       const user = result.user;
       console.log(user);
+      // Swal.fire({
+      //   title: "LogIn successful",
+      //   showClass: {
+      //     popup: `
+      //               animate__animated
+      //               animate__fadeInUp
+      //               animate__faster
+      //             `,
+      //   },
+      //   hideClass: {
+      //     popup: `
+      //               animate__animated
+      //               animate__fadeOutDown
+      //               animate__faster
+      //             `,
+      //   },
+        
+      // });
       Swal.fire({
-        title: "LogIn successful",
-        showClass: {
-          popup: `
-                    animate__animated
-                    animate__fadeInUp
-                    animate__faster
-                  `,
-        },
-        hideClass: {
-          popup: `
-                    animate__animated
-                    animate__fadeOutDown
-                    animate__faster
-                  `,
-        },
+        title: "success!",
+        text: "Logged In",
+        icon: "success",
+        confirmButtonText: "Continue",
       });
+      
+      
       navigate(from, { replace: true });
     });
+    
   };
 
   return (
     <div>
       <div>
-        <div className="hero min-h-screen">
-          <div className="hero-content w-5/12 flex-row-reverse ">
+        <div className="hero min-h-screen bg-blue-100">
+          <div className="hero-content  w-5/12 flex-row-reverse ">
             <div className="text-center lg:text-left">
               <Lottie
                 className="mb-5 w-96 ml-9"
                 animationData={LoginLottie}
               ></Lottie>
             </div>
-            <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
-              <h1 className="text-5xl font-bold text-center mb-11">
+            <div className="card  w-full shrink-0 bg-white shadow-2xl">
+              <h1 className="text-5xl font-bold pt-5 text-center mb-11">
                 Login now!
               </h1>
-              <form onSubmit={handleLogin} className="card-body">
+              <form onSubmit={handleLogin} className="card-body bg-white">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Email</span>
+                    <span className="label-text ">Email</span>
                   </label>
                   <input
                     type="email"
@@ -74,13 +85,13 @@ const LogIn = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Password</span>
+                    <span className="label-text ">Password</span>
                   </label>
                   <input
                     type="password"
                     placeholder="password"
                     name="password"
-                    className="input input-bordered"
+                    className="input input-bordered "
                     required
                   />
                   <label className="label">
@@ -101,7 +112,10 @@ const LogIn = () => {
                  <FaGoogle></FaGoogle> 
                   Log In with Google
                 </button> */}
-                  <SocialLogin></SocialLogin>
+                <div className="">
+                <SocialLogin></SocialLogin>
+                </div>
+                  
                   <p className="mt-4">
                     Don't have an acoount? Click on{" "}
                     <Link to="/register" className="text-red-600 font-bold">

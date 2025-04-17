@@ -2,7 +2,7 @@ import React from 'react';
 import { FaFire } from 'react-icons/fa';
 
 const AdvertisedItem = ({item}) => {
-    console.log(item)
+    // console.log(item)
     const { propertyTitle, propertyImage, priceRange, details, category } = item;
     return (
         <div className=" w-7/12 mt-10 mb-36 ml-5 gap-5 mx-auto">

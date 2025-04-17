@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import ViewDetails from "./ViewDetails";
+import { Link, useNavigate } from "react-router-dom";
 
 const AllPropertiesItem = ({ item }) => {
+
+  // const [id, setId] = useState([]);
+
+  const navigate = useNavigate();
+
+  const handleViewDetails = () => {
+    // setId(_id)
+    // console.log(id)
+    // const idd = parseInt(_id)
+    // console.log(idd);
+    // console.log(_id);
+    // ViewDetails({_id});
+    navigate(`/viewDetails/${item._id}`);
+  }
+
 //   console.log(item);
-  const { propertyTitle, propertyImage, priceRange, details, category } = item;
+  const {_id, propertyTitle, propertyImage, priceRange, details, category } = item;
   return (
     <div className="mb-10">
       <div className="card bg-base-100 shadow-xl">
@@ -13,12 +30,12 @@ const AllPropertiesItem = ({ item }) => {
           <h2 className="card-title">{propertyTitle}</h2>
           <p>Price:$S {priceRange}</p>
           <div className="card-actions">
-            <button
-              onClick={() => handleAddToCart(item)}
+            <Link to={`/viewDetails/${_id}`}
+              onClick={handleViewDetails}
               className="btn border-b-4 border-black bg-white rounded-none hover:bg-[#0088CE] hover:text-white"
             >
-              Add to Cart
-            </button>
+              View Details
+            </Link>
           </div>
         </div>
       </div>

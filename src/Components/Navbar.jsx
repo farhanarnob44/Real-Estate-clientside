@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import logo from "../assets/logo.svg";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -25,7 +26,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="bg-[#004274] mt-5 mb-5">
+    <div className="fixed mt-4 top-0 left-0 w-full bg-black text-white z-50 bg-opacity-30 shadow-sm mb-3">
       <div className="w-10/12 mx-auto text-white">
         <div className="navbar">
           <div className="navbar-start">
@@ -57,19 +58,19 @@ const Navbar = () => {
                 {links}
               </ul>
             </div>
-            <a className="btn btn-ghost text-xl">daisyUI</a>
+            <img src={logo} className="h-10 " alt="" />
+            {/* <a className="btn btn-ghost text-xl">Joy Bangla</a> */}
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>
           <div className="navbar-end">
-            {user? (
+            {user ? (
               <>
                 <img
                   className="w-12 h-12 rounded-[100%] mr-5"
                   src={user.photoURL}
-                  alt="" 
-                  
+                  alt=""
                 />
                 <h1>{user?.displayName}</h1>
                 <button

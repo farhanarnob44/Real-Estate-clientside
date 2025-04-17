@@ -16,7 +16,7 @@ const AllProperties = () => {
   return (
     <div>
       <div
-        className="hero bg-cover h-[600px]"
+        className="hero bg-cover h-[900px]"
         style={{
           backgroundImage: `url(${cover})`,
         }}

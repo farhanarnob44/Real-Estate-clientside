@@ -30,7 +30,7 @@ const SocialLogin = () => {
       <div className="divider"></div>
       <button
         onClick={handleGoogleSignIn}
-        className="btn w-full mt-4 bg-[#cb8161] text-white font-bold"
+        className="btn w-full  bg-[#00AEFF] text-white font-bold"
       >
         <FaGoogle></FaGoogle>
         Log In with Google

@@ -12,22 +12,17 @@ const AllUsers = () => {
   const {user} = useContext(AuthContext);
 
 
-
-
-
-
-
-
   // const [role, isLoading] = useRole();
   // console.log(role);
-  // const { data: users = [] } = useQuery({
-  //   queryKey: ["users"],
-  //   queryFn: async () => {
-  //     const res = await axiosSecure.get("/users");
+//   const { data: users = [] } = useQuery({
+//     queryKey: ["users"],
+//     queryFn: async () => {
+//       const res = await axiosSecure.get("/users");
 
-  //     return res.data;
-  //   },
-  // });
+//       return res.data;
+//     },
+//   });
+// console.log(res.data);
 
   // const [ role, isLoading] = useRole();
   // console.log(role);
@@ -72,7 +67,7 @@ const fetchedAllQueries = async () => {
       if (result.isConfirmed) {
         // });
         axiosSecure.delete(`/users/${user._id}`).then((res) => {
-          refetch();
+          // refetch();
           if (res.data.deletedCount > 0) {
             Swal.fire({
               title: "Deleted!",

@@ -15,6 +15,7 @@ import useRole from "../Components/useRole";
 import { AuthContext } from "../Provider/AuthProvider";
 import UseeAxiosSecure from "../Components/UseeAxiosSecure";
 import UseeAdmin from "../Components/UseeAdmin";
+import { CgProfile } from "react-icons/cg";
 // import UseCart from "../Components/UseCart";
 // import { FaSpoon } from "react-icons/fa6";
 // import UseeAdmin from "../Components/UseeAdmin";
@@ -26,7 +27,7 @@ const Dashboard = () => {
 
   //   const [isAdmin] = UseeAdmin();
   // const [isAdmin] = useRole();
-  const { user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   // console.log(user.email);
 
   const [query, setQuery] = useState([]);
@@ -36,16 +37,13 @@ const Dashboard = () => {
   const fetchedAllQueries = async () => {
     const { data } = await axiosSecure.get(`/users/role/${user.email}`);
     setQuery(data);
-    console.log(query.role)
-
+    // console.log(query.role)
   };
   const isAdmin = query.role;
-  console.log(isAdmin);
+  // console.log(isAdmin);
 
-// const [isAdmin] =UseeAdmin();
+  // const [isAdmin] =UseeAdmin();
   // const isAdmin = "admin";
-
-
 
   return (
     <div className="flex ml-10">
@@ -63,6 +61,12 @@ const Dashboard = () => {
                 </NavLink>
               </li>
 
+              <li>
+                <NavLink to="/dashboard/profile">
+                  <CgProfile />
+                  Profile
+                </NavLink>
+              </li>
               <li>
                 <NavLink to="/dashboard/manageBookings">
                   <FaBook></FaBook>
@@ -90,51 +94,33 @@ const Dashboard = () => {
                   className="text-2xl text-bold"
                 >
                   <FaHome></FaHome>
-                  Admin Home
+                  Customer Home
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/addItems">
-                  <FaProductHunt></FaProductHunt>
-                  Add Items
+                <NavLink to="/dashboard/profile">
+                  <CgProfile />
+                  My Profile
                 </NavLink>
               </li>
 
               <li>
-                <NavLink to="/dashboard/manageBookings">
+                <NavLink to="/dashboard/wishlist">
                   <FaBook></FaBook>
-                  Manage Bookings
+                  Wishlist
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/users">
                   <FaUser></FaUser>
-                  All Users
+                  Property bought
                 </NavLink>
               </li>
 
               <li>
                 <NavLink to="/dashboard/userHome">
                   <FaHome></FaHome>
-                  User Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/reservation">
-                  <FaCalendar></FaCalendar>
-                  Reservation
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/cart">
-                  {/* <FaShoppingCart></FaShoppingCart>
-                  My Cart ({cart.length}) */}
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/order">
-                  <FaList></FaList>
-                  My Orders
+                  My Reviews
                 </NavLink>
               </li>
             </>

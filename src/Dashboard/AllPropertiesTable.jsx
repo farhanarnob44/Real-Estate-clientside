@@ -1,9 +1,23 @@
 import React, { useEffect, useState } from "react";
 import SectionTitle from "../Components/SectionTitle";
 import { FaTrash } from "react-icons/fa";
+import UseeAxiosSecure from "../Components/UseeAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const AllPropertiesTable = () => {
+  const axiosSecure = UseeAxiosSecure();
+
   const [menu, setMenu] = useState([]);
+//   const { refetch } = useQuery({
+//     queryKey: ["menu"],
+//     queryFn: async () => {
+//       const res = await axiosSecure.get("/allproperties");
+
+//       return res.data;
+//     },
+//   });
   useEffect(() => {
     fetch("http://localhost:5000/allproperties")
       .then((res) => res.json())
@@ -13,7 +27,8 @@ const AllPropertiesTable = () => {
   }, []);
 
   const handleDeleteProduct = (menuItem) => {
-    console.log(menuItem);
+    // console.log(axiosSecure);
+    console.log(menuItem._id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -25,8 +40,9 @@ const AllPropertiesTable = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // });
-        axiosSecure.delete(`/allProducts/${menuItem._id}`).then((res) => {
-          refetch();
+        axiosSecure.delete(`/allproperties/${menuItem._id}`).then((res) => {
+            // const {dataa} =  axios.delete(`/allproperties/${menuItem._id}`).then((res) => {
+        //   refetch();
           if (res.data.deletedCount > 0) {
             Swal.fire({
               title: "Deleted!",
@@ -70,6 +86,7 @@ const AllPropertiesTable = () => {
                     alt=""
                   />
                   {menuItem.propertyTitle}
+                  {menuItem._id}
                 </td>
                 <td>{menuItem.priceRange}</td>
                 <td>{menuItem.propertyLocation}</td>
@@ -102,3 +119,4 @@ const AllPropertiesTable = () => {
 };
 
 export default AllPropertiesTable;
+
