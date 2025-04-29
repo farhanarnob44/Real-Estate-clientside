@@ -1,60 +1,99 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
+import useRole from "./useRole";
+import { useQuery } from "@tanstack/react-query";
+import UseeAxiosSecure from "./UseeAxiosSecure";
 
 const ViewDetails = () => {
   // const { _id } = useParams();
   // console.log(_id);
+  const [role, isLoading] = useRole();
+  // console.log(role);
+
+  const { user } = useContext(AuthContext);
+  const axiosSecure = UseeAxiosSecure();
+
+  // console.log(user.email);
+  // const email = user.email;
 
   const data = useLoaderData();
+
+  const wiShedDataa = {
+    id: data._id,
+    propertyTitle: data.propertyTitle,
+    propertyImage: data.propertyImage,
+    agentName: data.agentName,
+    agentImage: data.agentImage,
+    verificationStatus: data.verificationStatus,
+    priceRange: data.priceRange,
+    email: user.email,
+  };
   const joy = data._id;
-  // const [menu, setMenu] = useState([]);
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/wishlist/")
-  //     .then((res) => res.json())
-  //     .then((bal) => {
-  //       setMenu(bal);
-  //     });
-  // }, []);
-  // console.log(menu)
-  // const property = menu.find((prop) => prop.id === data._id);
-  // console.log(property);
 
 
   const [wishlistButtonDisabled, setWishlistButtonDisabled] = useState(false);
+  const [menu, setMenu] = useState([]);
+  const { refetch } = useQuery({
+    queryKey: ["menu"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/wishlist");
+      // console.log(res)
+      // console.log(res.data)
+       setMenu(res.data);
+    },
+  });
 
-  // if(property === true){
-  //   setWishlistButtonDisabled(true);
-  //   console.log("done");
+  const realData = menu.map(
+    (item) => item.propertyTitle 
+  );
+  const realEmail = menu.map(
+    (item) => item.email 
+  );
+  console.log(realData)
+  console.log(data.propertyTitle)
+  const realDataa = realData.find((item) => item === data.propertyTitle);
+  const realEmaill = realEmail.find((item) => item === user.email);
+  // if(realDataa){
+  //   console.log("hoise")
+  // }
+  // else{
+  //   console.log("name nai")
+  // }
+  // console.log(menu)
+
+  // console.log(data._id)
+  // if (!realData) {
+  //   console.log("hoise");
+  // }
+  //   // setWishlistButtonDisabled(true);
+  // } else {
+  //   console.log("pai nai");
   // }
 
-  // function handleClick() {
-  //   handleWishList(); // You cannot await here directly
-  //   console.log('Wishlist operation initiated');
-  // }
 
   const handleClick = async () => {
-    if(joy !== true){
+    if (realData) {
       console.log("hoise");
-
-  }
+    }
 
     setWishlistButtonDisabled(true);
     try {
       // console.log("Data being sent:", data);
-      const response = await axios.post("http://localhost:5000/wishlist", data);
+      const response = await axios.post(
+        "http://localhost:5000/wishlist",
+        wiShedDataa
+      );
       const { wishedData, insertResult } = response.data; // Assuming the data you need is in response.data
 
-      // console.log("Response from server:", response);
-      // console.log("Wished data:", wishedData);
-      // console.log("Insert Result:", insertResult);
+
 
       // Example of handling a successful response:
       if (response.status === 200 || response.status === 201) {
-        // console.log("Item added to wishlist successfully!");
-        // You might want to update your component's state or show a message here
+
       } else {
         // console.warn("Unexpected response status:", response.status);
         setWishlistButtonDisabled(false);
@@ -62,7 +101,7 @@ const ViewDetails = () => {
       }
 
       Swal.fire({
-        title: "Custom animation with Animate.css",
+        title: "Property Added to the wishlist successfully",
         showClass: {
           popup: `
           animate__animated
@@ -84,51 +123,7 @@ const ViewDetails = () => {
     }
   };
 
-  // const handleClick = () =>  {
-  //   setWishlistButtonDisabled(true);
 
-  //   // console.log(joy);
-
-  //   useEffect(() => {
-  //     fetch("http://localhost:5000/wishlist/")
-  //       .then((res) => res.json())
-  //       .then((bal) => {
-  //         setMenu(bal);
-  //       });
-  //   }, []);
-  //       const property = menu.find((prop) => prop.id === joy);
-  //   console.log(property)
-
-  // }
-
-  // const handleWishList = async () => {
-
-  //   const {wishedData} = await axios.post('http://localhost:5000/wishlist',data)
-
-  //   console.log(data)
-  // }
-
-  // console.log(data);
-
-  // if (_id !== true) {
-  //   console.log(_id);
-  //   const [menu, setMenu] = useState([]);
-  //   useEffect(() => {
-  //     fetch("http://localhost:5000/allproperties")
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         setMenu(data);
-  //       });
-  //   }, []);
-
-  //   const property = menu.find((prop) => prop.id === _id);
-  //   console.log(property)
-  // }
-  // else{
-  //   console.log(_id);
-  // }
-
-  // console.log(_id);
 
   return (
     <div className="mb-20">
@@ -141,20 +136,33 @@ const ViewDetails = () => {
           />
         </figure>
         <div className="card-body mr-3">
-          <h2 className="card-title">{data.propertyTitle}</h2>
-          <p>Location : {data.propertyLocation}</p>
-          <p>Price Range : {data.priceRange}</p>
+          <h2 className="card-title text-4xl font-bold mb-7">{data.propertyTitle}</h2>
+          <p><span className="font-semibold text-xl mt-4">Location :</span> {data.propertyLocation}</p>
+          <p><span className="font-semibold text-xl mt-4">Price Range :</span> $ {data.priceRange}</p>
+          <p><span className="font-semibold text-xl mt-4">Agent Name:</span> {data.agentName}</p>
+          <p><span className="font-semibold text-xl mt-4">Agent email:</span> {data.agentEmail}</p>
+          {/* <p>Property Lcoation: {data.}</p> */}
 
-          <div className="card-actions justify-around mt-6">
-            <button
-              onClick={handleClick}
-              disabled={wishlistButtonDisabled}
-              className="btn btn-primary"
-            >
-              Add to wishlist
-            </button>
-            <button className="btn btn-primary">Add to cart</button>
-          </div>
+          {role === "customer" ? (
+            <div className="card-actions justify-around mt-6">
+
+              {
+                realDataa && realEmaill ? <><h1 className="border border-red-700 borer-2 p-4 text-red-700 mt-5 font-bold text-2xl">Already added to Wishlist</h1></> :                 <>
+                <button
+                  onClick={handleClick}
+                  disabled={wishlistButtonDisabled}
+                  className="btn btn-primary text-white"
+                >
+                  Add to wishlist
+                </button>
+              </>
+              }
+
+              {/* <button className="btn btn-primary">Add to cart</button> */}
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </div>

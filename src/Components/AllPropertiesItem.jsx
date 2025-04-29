@@ -28,11 +28,11 @@ const AllPropertiesItem = ({ item }) => {
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">{propertyTitle}</h2>
-          <p>Price:$S {priceRange}</p>
+          <p>Price:$ {priceRange}</p>
           <div className="card-actions">
             <Link to={`/viewDetails/${_id}`}
               onClick={handleViewDetails}
-              className="btn border-b-4 border-black bg-white rounded-none hover:bg-[#0088CE] hover:text-white"
+              className="btn  rounded-none bg-blue-700 hover:bg-blue-800 font-bold text-white"
             >
               View Details
             </Link>

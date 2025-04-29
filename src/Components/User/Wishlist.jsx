@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SectionTitle from "../SectionTitle";
 import { FaTrash } from "react-icons/fa6";
 import WishedItems from "./WishedItems";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Wishlist = () => {
+  const {user} = useContext(AuthContext);
+  // const email = user.email;
   const [menu, setMenu] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/wishlist/")
       .then((res) => res.json())
       .then((data) => {
-        setMenu(data);
+        const popularItems = data.filter((item) => item.email === user.email);
+        setMenu(popularItems);
       });
   }, []);
   console.log(menu);

@@ -14,7 +14,7 @@ const AllProperties = () => {
   }, []);
 
   return (
-    <div>
+    <div className="mt-2">
       <div
         className="hero bg-cover h-[900px]"
         style={{

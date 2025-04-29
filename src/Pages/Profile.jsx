@@ -2,10 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import cover from "../assets/formalBlue.jpg";
 import UseeAxiosSecure from "../Components/UseeAxiosSecure";
+import useRole from "../Components/useRole";
 
 const Profile = () => {
 
   const axiosSecure = UseeAxiosSecure();
+
+  const [role, isLoading] = useRole();
+  console.log(role)
 
   const { user } = useContext(AuthContext);
 
@@ -19,7 +23,7 @@ const Profile = () => {
       // console.log(query)
     };
     const Roleee = query.role;
-    console.log(Roleee);
+    // console.log(Roleee);
 
   return (
     <div className="mx-auto w-9/12 mt-32 text-center">

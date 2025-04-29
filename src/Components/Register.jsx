@@ -47,6 +47,10 @@ const Register = () => {
       );
     }
 
+    // console.log(error)
+
+    // if(isEmailRe)
+
     createUser(email, password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
@@ -56,27 +60,35 @@ const Register = () => {
         photo: photo,
         role: "customer",
       };
-      axios
-        .post("http://localhost:5000/users", userInfo)
-        .then((result) => {
-          if (result) {
-             console.log("aschje")
-            Swal.fire({
-              title: "success!",
-              text: "User addeded",
-              icon: "success",
-              confirmButtonText: "Continue",
-            });
-        }})
+      axios.post("http://localhost:5000/users", userInfo).then((result) => {
+        if (result) {
+          //  console.log("aschje")
+          Swal.fire({
+            title: "success!",
+            text: "User addeded",
+            icon: "success",
+            confirmButtonText: "Continue",
+          });
+        }
+      })
+
+     
         .catch((error) => {
-          console.log(error);
-          setError(error.message);
+          console.error("Firebase Registration Error:", error); // Log any Firebase error
+          if (firebaseError.code === "auth/email-already-in-use") {
+            setError(
+              "This email address is already in use. Please log in or use a different email."
+            );
+          } else {
+            setError(firebaseError.message); // Display other Firebase errors
+          }
         });
-        navigate(from, { replace: true });
+
+      navigate(from, { replace: true });
     });
   };
   return (
-    <div>
+    <div className="">
       <div>
         <div className="hero bg-blue-100 min-h-screen">
           <div className="hero-content w-5/12 flex ">
@@ -121,7 +133,7 @@ const Register = () => {
                   </label>
                   <input
                     type="password"
-                    placeholder="password"
+                    placeholder="Must contain uppercase, and lowercase letters, and be at least 6 characters long."
                     name="password"
                     className="input input-bordered"
                     required

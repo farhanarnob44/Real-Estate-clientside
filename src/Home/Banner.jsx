@@ -2,13 +2,16 @@ import React from "react";
 import img1 from "../assets/home2.jpg";
 import img2 from "../assets/home 3.jpg";
 import img3 from "../assets/img3.jpg";
+import img4 from "../assets/desifn-removebg-preview.png";
+// import img5 from "../assets/Screenshot (74).png";
 import * as motion from "motion/react-client";
 import { easeOut } from "framer-motion";
+import { Link } from "react-router-dom";
 
-const  Banner = () => {
+const Banner = () => {
   return (
     <div>
-      <div className="mt-[-30px] ">
+      {/* <div className="mt-[-30px] ">
         <div className="carousel h-[1000px] mb-28  w-full">
           <div id="slide1" className="carousel-item relative w-full transition duration-200">
             <div
@@ -153,6 +156,73 @@ const  Banner = () => {
                 ❯
               </a>
             </div>
+          </div>
+        </div>
+      </div> */}
+
+
+      <div className="hero h-[850px]  mb-28 bg-[#EEF7FF] min-h-96">
+        <div className="hero-content flex-col lg:flex-row-reverse justify-around">
+          <div className="flex-1 ">
+            <div className="flex flex-row">
+            <motion.img
+              src={img3}
+              animate={{ y: [0, 50, 0] }}
+              transition={{ duration: 7, repeat: Infinity }}
+              className="h-[265px] w-[440px] rounded-t-[40px] rounded-br-[40px] shadow-2xl"
+            />
+            <motion.img
+              src={img4}
+              animate={{ x: [0, 90, 0] }}
+              transition={{ duration: 7, repeat: Infinity }}
+              className="mr-[-100px] h-20 mt-40 ml-5 mb-3"
+            />
+            </div>
+            <div className="flex flex-row-reverse gap-0">
+              <motion.img
+                src={img2}
+                animate={{ x: [100, 150, 100] }}
+                transition={{ duration: 7, repeat: Infinity }}
+                className="h-[265px] w-[440px] ml-7 rounded-t-[40px] rounded-br-[40px] shadow-2xl"
+              />
+              <motion.img
+                src={img4}
+                animate={{ y: [0, 65, 0] }}
+                transition={{ duration: 7, repeat: Infinity }}
+                className="mr-[-100px] h-20 mt-10"
+              />
+            </div>
+          </div>
+          <div className="flex-1 font-semibold mr-[300px]">
+            <motion.h1
+              animate={{ x: 50 }}
+              transition={{
+                duration: 2,
+                delay: 1,
+                ease: easeOut,
+                repeat: Infinity,
+              }}
+              className="text-5xl font-bold"
+            >
+              New Modern {" "}
+              <motion.span
+                animate={{ color: ["red", "blue"] }}
+                transition={{ duration: 2, delay: 1.5, repeat: Infinity }}
+              >
+                Collection
+              </motion.span>{" "}
+              for you!
+            </motion.h1>
+            <p className="py-6">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Voluptatem quisquam numquam quis excepturi minima magni? Fuga
+              suscipit quidem est dolor voluptas nam iusto temporibus numquam,
+              doloremque possimus natus, a laborum beatae earum autem dolorem
+              impedit consequatur, quam iste deserunt fugit!
+            </p>
+            <Link to="allProperties" className="btn bg-blue-700 text-white">
+              Get Started
+            </Link>
           </div>
         </div>
       </div>

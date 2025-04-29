@@ -23,7 +23,7 @@ const AdvertisedItem = ({item}) => {
             {/* <p>Category: {category}$</p> */}
             <p>Price: {priceRange}$</p>
             <div className="card-actions">
-              <button className="btn btn-outline bg-slate-200 text-black rounded-none border-0 border-b-4  hover:bg-[#CB8161] hover:text-white">
+              <button className="btn bg-blue-600 hover:bg-blue-800 font-bold text-white">
                 Add to Cart
               </button>
             </div>

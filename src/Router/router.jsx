@@ -11,6 +11,8 @@ import AllPropertiesTable from "../Dashboard/AllPropertiesTable";
 import Profile from "../Pages/Profile";
 import ViewDetails from "../Components/ViewDetails";
 import Wishlist from "../Components/User/Wishlist";
+import AddProperties from "../Components/Agent/AddProperties";
+import Payment from "../Components/User/Payment";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +66,14 @@ const router = createBrowserRouter([
       {
         path: "wishlist",
         element: <Wishlist></Wishlist>,
+      },
+      {
+        path: "addProduct",
+        element: <AddProperties></AddProperties>,
+      },
+      {
+        path: "payment",
+        element: <Payment></Payment>,
       },
     ],
   },

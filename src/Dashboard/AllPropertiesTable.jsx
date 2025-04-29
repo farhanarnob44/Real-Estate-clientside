@@ -10,21 +10,20 @@ const AllPropertiesTable = () => {
   const axiosSecure = UseeAxiosSecure();
 
   const [menu, setMenu] = useState([]);
-//   const { refetch } = useQuery({
-//     queryKey: ["menu"],
-//     queryFn: async () => {
-//       const res = await axiosSecure.get("/allproperties");
-
-//       return res.data;
-//     },
-//   });
-  useEffect(() => {
-    fetch("http://localhost:5000/allproperties")
-      .then((res) => res.json())
-      .then((data) => {
-        setMenu(data);
-      });
-  }, []);
+  const { refetch } = useQuery({
+    queryKey: ["menu"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/allproperties");
+      setMenu (res.data);
+    },
+  });
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/allproperties")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setMenu(data);
+  //     });
+  // }, []);
 
   const handleDeleteProduct = (menuItem) => {
     // console.log(axiosSecure);
@@ -42,7 +41,7 @@ const AllPropertiesTable = () => {
         // });
         axiosSecure.delete(`/allproperties/${menuItem._id}`).then((res) => {
             // const {dataa} =  axios.delete(`/allproperties/${menuItem._id}`).then((res) => {
-        //   refetch();
+          refetch();
           if (res.data.deletedCount > 0) {
             Swal.fire({
               title: "Deleted!",

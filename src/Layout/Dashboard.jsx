@@ -3,6 +3,7 @@ import { CiShop } from "react-icons/ci";
 import {
   FaBook,
   FaCalendar,
+  FaHandsHelping,
   FaHome,
   FaList,
   FaProductHunt,
@@ -16,6 +17,8 @@ import { AuthContext } from "../Provider/AuthProvider";
 import UseeAxiosSecure from "../Components/UseeAxiosSecure";
 import UseeAdmin from "../Components/UseeAdmin";
 import { CgProfile } from "react-icons/cg";
+import { IoBagAddSharp } from "react-icons/io5";
+import { LuBaggageClaim } from "react-icons/lu";
 // import UseCart from "../Components/UseCart";
 // import { FaSpoon } from "react-icons/fa6";
 // import UseeAdmin from "../Components/UseeAdmin";
@@ -45,10 +48,12 @@ const Dashboard = () => {
   // const [isAdmin] =UseeAdmin();
   // const isAdmin = "admin";
 
+  // bg-[#004274]
+
   return (
     <div className="flex ml-10">
-      <div className="w-64 min-h-screen bg-[#004274] text-white">
-        <ul className="menu p-4">
+      <div className="w-[300px]  min-h-screen bg-blue-900 text-white">
+        <ul className="menu p-4 font-semibold text-[15px]">
           {isAdmin === "admin" ? (
             <>
               <li>
@@ -62,7 +67,7 @@ const Dashboard = () => {
               </li>
 
               <li>
-                <NavLink to="/dashboard/profile">
+                <NavLink to="/dashboard/profile" className="mt-5">
                   <CgProfile />
                   Profile
                 </NavLink>
@@ -127,9 +132,43 @@ const Dashboard = () => {
           ) : (
             <>
               <li>
+                <NavLink
+                  to="/dashboard/adminHome"
+                  className="text-2xl text-bold mb-3"
+                >
+                  <FaHome></FaHome>
+                  Agent Home
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/dashboard/profile" className="">
+                  <CgProfile />
+                  My Profile
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/addProduct">
+                  <IoBagAddSharp />
+                  Add Product
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to="/dashboard/order">
                   <FaList></FaList>
-                  My Orders
+                  My Added Properties
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/order">
+                  <LuBaggageClaim />
+                  My Sold Properties
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/order">
+                  <FaHandsHelping />
+                  Requested Properties
                 </NavLink>
               </li>
             </>
@@ -146,9 +185,9 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/shop">
+            <NavLink to="/allProperties">
               <MdOutlineShoppingBag />
-              Shop
+              All Properties
             </NavLink>
           </li>
         </ul>
