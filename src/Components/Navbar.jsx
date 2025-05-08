@@ -52,6 +52,11 @@ const Navbar = () => {
           Dashboard
         </Link>
       </li>
+      <li>
+        <Link to="/notification" className="hover:text-white text-xl">
+          Notification
+        </Link>
+      </li>
     </>
   );
   return (

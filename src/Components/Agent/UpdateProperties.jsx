@@ -2,10 +2,20 @@ import React, { useContext, useEffect, useState } from "react";
 import SectionTitle from "../SectionTitle";
 import { AuthContext } from "../../Provider/AuthProvider";
 import UseeAxiosSecure from "../UseeAxiosSecure";
+import { useLocation, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const AddProperties = () => {
+const UpdateProperties = () => {
+
+  const location = useLocation();
+
+  const { menuItem } = location.state;
+  // console.log(menuItem._id)
+
+  const realId = menuItem._id
+
   const { user } = useContext(AuthContext);
+  const axiosSecure = UseeAxiosSecure();
   const [userEmail, setUserEmail] = useState("");
   const [userName, setUserName] = useState("");
   useEffect(() => {
@@ -14,23 +24,17 @@ const AddProperties = () => {
       setUserName(user.displayName);
     }
   }, [user]);
-  //   const { register, handleSubmit } = useForm();
-  //   const onSubmit = (data) => {
-  //     console.log(data);
-  //   };
-  const axiosSecure = UseeAxiosSecure();
 
-  const handleAddEquipment = async (e) => {
+  const handleUpdateEquipment = async (e) => {
     e.preventDefault();
     const userEmail = e.target.userEmail.value;
     const name = e.target.propertyTitle.value;
-  
+
     const location = e.target.propertyLocation.value;
     const price = e.target.price.value;
     const image = e.target.propertyImage.value;
     const userName = e.target.userName.value;
-    console.log(price)
-
+    console.log(price);
 
     const userr = { name, location, price, image, userName, userEmail };
     console.log(userr);
@@ -45,30 +49,35 @@ const AddProperties = () => {
       // details: details,
     };
 
-    const menuRes = await axiosSecure.post("/allproperties", items);
+    const updateDone = axiosSecure.put(`/allproperties/${realId}`,items)
+
+    Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `property has been updated`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+
+
     // console.log(items.propertyTitle);
-    if (menuRes.data.insertedId) {
-      // pop up
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: `property has been added`,
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    }
+    // if (updateDone.data.insertedId) {
+    //   // pop up
+    //   
+    // }
   };
 
   return (
     <div>
-      <h1>This is add Product</h1>
+      <h1>this is update properties</h1>
 
       <SectionTitle
-        heading="Add an Item"
+        heading="Update an Item"
         subHeading="What's new"
       ></SectionTitle>
 
-      <form className="w-10/12 mx-auto" onSubmit={handleAddEquipment}>
+      <form className="w-10/12 mx-auto" onSubmit={handleUpdateEquipment}>
         <div className="flex justify-around px-5 items-center gap-8 text-center ">
           <div className="form-control w-full">
             <label className="label">
@@ -101,11 +110,9 @@ const AddProperties = () => {
               <span className="label-text">Price</span>
             </label>
             <input
-              type="number"
               placeholder="enter the price here"
               name="price"
               className="input input-bordered"
-              min={1}
               required
             />
           </div>
@@ -162,4 +169,4 @@ const AddProperties = () => {
   );
 };
 
-export default AddProperties;
+export default UpdateProperties;

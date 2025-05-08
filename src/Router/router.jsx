@@ -13,6 +13,9 @@ import ViewDetails from "../Components/ViewDetails";
 import Wishlist from "../Components/User/Wishlist";
 import AddProperties from "../Components/Agent/AddProperties";
 import Payment from "../Components/User/Payment";
+import MyAddedProperties from "../Components/Agent/MyAddedProperties";
+import UpdateProperties from "../Components/Agent/UpdateProperties";
+import Notification from "../Components/Notification";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/logIn",
         element: <LogIn></LogIn>,
+      },
+      {
+        path: "/notification",
+        element: <Notification></Notification>,
       },
       {
         path: "/register",
@@ -74,6 +81,14 @@ const router = createBrowserRouter([
       {
         path: "payment",
         element: <Payment></Payment>,
+      },
+      {
+        path: "updateProperties",
+        element: <UpdateProperties></UpdateProperties>,
+      },
+      {
+        path: "myAddedProperties",
+        element: <MyAddedProperties></MyAddedProperties>,
       },
     ],
   },

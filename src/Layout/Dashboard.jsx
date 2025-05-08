@@ -154,7 +154,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/order">
+                <NavLink to="/dashboard/myAddedProperties">
                   <FaList></FaList>
                   My Added Properties
                 </NavLink>

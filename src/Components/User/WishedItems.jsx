@@ -22,6 +22,7 @@ const WishedItems = ({ item }) => {
             <div className="card-actions">
               <Link
               to="/dashboard/payment"
+              state={ {item} } 
                 // onClick={handleViewDetails}
                 className="btn border-b-4 border-black bg-white rounded-none hover:bg-[#0088CE] hover:text-white"
               >

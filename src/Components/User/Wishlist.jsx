@@ -13,6 +13,7 @@ const Wishlist = () => {
       .then((res) => res.json())
       .then((data) => {
         const popularItems = data.filter((item) => item.email === user.email);
+        console.log(data)
         setMenu(popularItems);
       });
   }, []);
