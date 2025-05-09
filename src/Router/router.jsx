@@ -16,6 +16,7 @@ import Payment from "../Components/User/Payment";
 import MyAddedProperties from "../Components/Agent/MyAddedProperties";
 import UpdateProperties from "../Components/Agent/UpdateProperties";
 import Notification from "../Components/Notification";
+import PaymentHistory from "../Components/User/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -89,6 +90,10 @@ const router = createBrowserRouter([
       {
         path: "myAddedProperties",
         element: <MyAddedProperties></MyAddedProperties>,
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory></PaymentHistory>,
       },
     ],
   },
