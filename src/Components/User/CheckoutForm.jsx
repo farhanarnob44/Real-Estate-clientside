@@ -6,8 +6,10 @@ import { useLocation } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
-const CheckoutForm = ({ price }) => {
-  // console.log(price);
+const CheckoutForm = ({ price ,propertyTitle , propertyImage}) => {
+  console.log(price);
+
+  console.log(propertyTitle)
 
     const [menu, setMenu] = useState([]);
     useEffect(() => {
@@ -99,6 +101,8 @@ const CheckoutForm = ({ price }) => {
         // now save the payment to the database
 
         const payment = {
+          propertyTitle : propertyTitle,
+          propertyImage : propertyImage,
           email: user.email,
           price: price,
           transactionId : paymentIntent.id,

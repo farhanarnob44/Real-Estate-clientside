@@ -9,7 +9,11 @@ const Payment = () => {
   const location = useLocation();
 
   const { item } = location.state;
+  console.log(item)
   const price = item.priceRange;
+  const propertyTitle = item.propertyTitle;
+  const propertyImage = item.propertyImage
+  console.log(propertyTitle)
 
   const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway);
 
@@ -23,7 +27,7 @@ const Payment = () => {
       ></SectionTitle>
       <div>
         <Elements stripe={stripePromise}>
-          <CheckoutForm price={price}></CheckoutForm>
+          <CheckoutForm price={price} propertyTitle={propertyTitle} propertyImage= {propertyImage}></CheckoutForm>
         </Elements>
       </div>
     </div>
