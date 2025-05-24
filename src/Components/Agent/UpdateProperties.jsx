@@ -70,7 +70,7 @@ const UpdateProperties = () => {
 
   return (
     <div>
-      <h1>this is update properties</h1>
+      {/* <h1>this is update properties</h1> */}
 
       <SectionTitle
         heading="Update an Item"

@@ -21,7 +21,7 @@ const Wishlist = () => {
 
   return (
     <div>
-      <h1>This is wishlist section</h1>
+      {/* <h1>This is wishlist section</h1> */}
 
       <div>
         <SectionTitle

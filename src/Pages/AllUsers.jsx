@@ -93,7 +93,7 @@ const AllUsers = () => {
 
   return (
     <div>
-      <h1>this is all users</h1>
+      {/* <h1>this is all users</h1> */}
       <div>
         <div className="flex justify-evenly my-4 ">
           <h2 className="text-3xl ">All Users</h2>

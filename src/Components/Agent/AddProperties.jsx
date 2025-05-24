@@ -61,7 +61,7 @@ const AddProperties = () => {
 
   return (
     <div>
-      <h1>This is add Product</h1>
+      {/* <h1>This is add Product</h1> */}
 
       <SectionTitle
         heading="Add an Item"
