@@ -9,7 +9,7 @@ const Wishlist = () => {
   // const email = user.email;
   const [menu, setMenu] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/wishlist/")
+    fetch("https://real-estate-server-lilac.vercel.app/wishlist/")
       .then((res) => res.json())
       .then((data) => {
         const popularItems = data.filter((item) => item.email === user.email);

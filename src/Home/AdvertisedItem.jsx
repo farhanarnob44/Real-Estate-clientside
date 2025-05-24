@@ -1,9 +1,10 @@
 import React from 'react';
 import { FaFire } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const AdvertisedItem = ({item}) => {
     // console.log(item)
-    const { propertyTitle, propertyImage, priceRange, details, category } = item;
+    const {_id, propertyTitle, propertyImage, priceRange, details, category } = item;
     return (
         <div className=" w-7/12 mt-10 mb-36 ml-5 gap-5 mx-auto">
       <div className=" ">
@@ -23,9 +24,9 @@ const AdvertisedItem = ({item}) => {
             {/* <p>Category: {category}$</p> */}
             <p>Price: {priceRange}$</p>
             <div className="card-actions">
-              <button className="btn bg-blue-600 hover:bg-blue-800 font-bold text-white">
-                Add to Cart
-              </button>
+              <Link to={`/viewDetails/${_id}`} className="btn bg-blue-600 hover:bg-blue-800 font-bold text-white">
+                View Details
+              </Link>
             </div>
           </div>
         </div>

@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         path: "/viewDetails/:id",
         element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allproperties/${params.id}`),
+          fetch(`https://real-estate-server-lilac.vercel.app/allproperties/${params.id}`),
       },
     ],
   },

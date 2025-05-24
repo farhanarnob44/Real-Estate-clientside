@@ -6,7 +6,7 @@ import SectionTitle from "./SectionTitle";
 const AllProperties = () => {
   const [menu, setMenu] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/allproperties")
+    fetch("https://real-estate-server-lilac.vercel.app/allproperties")
       .then((res) => res.json())
       .then((data) => {
         setMenu(data);

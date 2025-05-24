@@ -60,7 +60,7 @@ const Register = () => {
         photo: photo,
         role: "customer",
       };
-      axios.post("http://localhost:5000/users", userInfo).then((result) => {
+      axios.post("https://real-estate-server-lilac.vercel.app/users", userInfo).then((result) => {
         if (result) {
           //  console.log("aschje")
           Swal.fire({

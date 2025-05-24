@@ -84,7 +84,7 @@ const ViewDetails = () => {
     try {
       // console.log("Data being sent:", data);
       const response = await axios.post(
-        "http://localhost:5000/wishlist",
+        "https://real-estate-server-lilac.vercel.app/wishlist",
         wiShedDataa
       );
       const { wishedData, insertResult } = response.data; // Assuming the data you need is in response.data

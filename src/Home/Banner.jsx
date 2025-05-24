@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <div>
-      {/* <div className="mt-[-30px] ">
+      <div className="mt-[10px] ">
         <div className="carousel h-[1000px] mb-28  w-full">
           <div id="slide1" className="carousel-item relative w-full transition duration-200">
             <div
@@ -158,10 +158,10 @@ const Banner = () => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
 
 
-      <div className="hero h-[850px]  mb-28 bg-[#EEF7FF] min-h-96">
+      {/* <div className="hero h-[850px]  mb-28 bg-[#EEF7FF] min-h-96">
         <div className="hero-content flex-col lg:flex-row-reverse justify-around">
           <div className="flex-1 ">
             <div className="flex flex-row">
@@ -225,7 +225,7 @@ const Banner = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

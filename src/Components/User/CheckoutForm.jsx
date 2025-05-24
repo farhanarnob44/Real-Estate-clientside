@@ -13,7 +13,7 @@ const CheckoutForm = ({ price ,propertyTitle , propertyImage}) => {
 
     const [menu, setMenu] = useState([]);
     useEffect(() => {
-      fetch("http://localhost:5000/wishlist/")
+      fetch("https://real-estate-server-lilac.vercel.app/wishlist/")
         .then((res) => res.json())
         .then((data) => {
           // console.log(data)
