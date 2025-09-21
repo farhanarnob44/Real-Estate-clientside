@@ -6,7 +6,7 @@ import Parallyx from './Parallyx';
 
 const Home = () => {
     return (
-        <div>
+        <div >
             <Banner></Banner>
             <Advertisement></Advertisement>
             <Parallyx></Parallyx>

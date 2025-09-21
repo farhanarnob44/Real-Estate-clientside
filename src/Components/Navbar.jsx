@@ -60,7 +60,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="  bg-blue-800 left-0 w-full font-semibold   mt-2 text-white   ">
+    <div className="  bg-blue-800 left-0 w-full font-semibold mt-2 text-white ">
       <div className="w-10/12 mx-auto">
         <div className="navbar">
           <div className="navbar-start">
